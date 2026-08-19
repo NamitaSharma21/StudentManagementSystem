@@ -1,0 +1,130 @@
+@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<link rel="stylesheet" href="~/css/StudentDetails.css" />
+
+
+<div class="details-container">
+
+    <div class="profile-card">
+
+        <div class="profile-header">
+
+            <div class="profile-icon">
+                <i class="bi bi-person-fill"></i>
+            </div>
+
+            <h2>@Model.Name</h2>
+
+            <p>@Model.Course</p>
+
+        </div>
+
+
+        <div class="details-grid">
+
+
+            <div class="detail-box">
+
+                <span>Name</span>
+                <h4>@Model.Name</h4>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Username</span>
+                <h4>@Model.Username</h4>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Department</span>
+                <h4>@Model.Department?.DepartmentName</h4>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Course</span>
+                <h4>@Model.Course</h4>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Semester</span>
+                <h4>@Model.Semester</h4>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>CGPA</span>
+                <h4>@Model.CGPA</h4>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Mobile Number</span>
+                <h4>@Model.MobileNo</h4>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Hometown</span>
+                <h4>@Model.Hometown</h4>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Date of Birth</span>
+                <h4>@Model.DOB.ToString("dd-MM-yyyy")</h4>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="button-area">
+
+            <a asp-action="EditStudent"
+               asp-route-id="@Model.ID"
+               class="edit-btn">
+
+                <i class="bi bi-pencil-square"></i>
+                Edit
+
+            </a>
+
+
+            <a asp-action="Dashboard"
+               class="back-btn">
+
+                Back
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,215 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f7fb;
+    padding: 30px;
+}
+
+/* Left Section */
+
+.login-left {
+    width: 420px;
+    min-height: 560px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px 0 0 20px;
+}
+
+.login-left img {
+    width: 100%;
+    max-width: 320px;
+}
+
+/* Right Section */
+
+.login-right {
+    width: 500px;
+    min-height: 560px;
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-right h2 {
+    font-size: 32px;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-right p {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Login Role */
+
+.login-role {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.login-role label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+}
+
+.login-role input[type="radio"] {
+    accent-color: #2563eb;
+}
+
+/* Form */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.15);
+}
+
+/* Button */
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Register Text */
+
+.register-text {
+    text-align: center;
+    margin-top: 22px;
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.register-text a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+/* Validation */
+
+.text-danger {
+    color: #dc2626;
+    font-size: 13px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .login-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .login-left,
+    .login-right {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .login-left {
+        border-radius: 20px 20px 0 0;
+        padding: 30px;
+    }
+
+    .login-right {
+        border-radius: 0 0 20px 20px;
+        padding: 35px 25px;
+    }
+
+    .login-left img {
+        max-width: 250px;
+    }
+
+    .login-right h2 {
+        font-size: 28px;
+    }
+
+    .login-role {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+
+.form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    box-sizing: border-box;
+    background: #fff;
+    color: #374151;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.15);
+}

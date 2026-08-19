@@ -1,0 +1,17 @@
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.log
+node_modules/
+**/node_modules/
+*.db
+*.cache
+.DS_Store
+.nuget/
+
+# Ignore publish output
+publish/
+app/

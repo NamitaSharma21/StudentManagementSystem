@@ -1,0 +1,67 @@
+@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<link rel="stylesheet" href="~/css/Register.css" />
+
+<div class="register-container">
+
+    <div class="register-left">
+        <img src="~/images/register.jpg" alt="Register">
+    </div>
+
+    <div class="register-right">
+
+        <h2>Create Admin Account</h2>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="text-danger mb-2">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form asp-action="Register" method="post">
+
+            <input asp-for="Name" type="text" placeholder="Full Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+            <input asp-for="Username" type="text" placeholder="Username" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+
+            <input asp-for="Password" type="password" placeholder="Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <input asp-for="MobileNo" type="text" placeholder="Mobile Number" />
+            <span asp-validation-for="MobileNo" class="text-danger"></span>
+
+            <!-- Hidden Values -->
+            <input asp-for="Role" type="hidden" value="Admin" />
+            <input asp-for="Course" type="hidden" value="N/A" />
+            <input asp-for="Semester" type="hidden" value="0" />
+            <input asp-for="CGPA" type="hidden" value="0" />
+            <input asp-for="DOB" type="hidden" value="2000-01-01" />
+            <input asp-for="Hometown" type="hidden" value="N/A" />
+            <input asp-for="DepartmentId" type="hidden" value="1" />
+
+            <button type="submit" class="register-btn">
+                Register
+            </button>
+
+            <p class="login-text">
+                Already have an account?
+                <a asp-controller="Account" asp-action="Login">Login</a>
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

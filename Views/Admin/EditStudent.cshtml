@@ -1,0 +1,113 @@
+@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<link rel="stylesheet" href="~/css/AddStudent.css" />
+
+<div class="add-student-container">
+
+    <div class="form-card">
+
+        <h2>Edit Student</h2>
+        <p>Update student details.</p>
+
+        <form asp-action="EditStudent" method="post">
+
+            <input type="hidden" asp-for="ID" />
+            <input type="hidden" asp-for="Role" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Username"></label>
+                    <input asp-for="Username" class="form-control" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Course"></label>
+                    <input asp-for="Course" class="form-control" />
+                    <span asp-validation-for="Course" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+
+                    <label>Department</label>
+
+                    <select asp-for="DepartmentId" class="form-control">
+
+                        @foreach (var item in ViewBag.Departments)
+                        {
+                            <option value="@item.DepartmentId">
+                                @item.DepartmentName
+                            </option>
+                        }
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Semester"></label>
+                    <input asp-for="Semester" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CGPA"></label>
+                    <input asp-for="CGPA" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DOB"></label>
+                    <input asp-for="DOB" type="date" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MobileNo"></label>
+                    <input asp-for="MobileNo" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Hometown"></label>
+                    <input asp-for="Hometown" class="form-control" />
+                </div>
+
+            </div>
+
+            <div class="button-group">
+
+                <button type="submit" class="save-btn">
+                    Update Student
+                </button>
+
+                <a asp-action="Dashboard" class="cancel-btn">
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

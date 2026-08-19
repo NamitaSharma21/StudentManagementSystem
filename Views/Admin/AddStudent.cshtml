@@ -1,0 +1,338 @@
+@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<link rel="stylesheet" href="~/css/AddStudent.css" />
+
+
+<div class="add-student-container">
+
+    <div class="form-card">
+
+
+        <h2>Add Student</h2>
+
+        <p>Enter student details.</p>
+
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.Error
+            </div>
+        }
+
+
+        <form asp-action="AddStudent" method="post">
+
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-grid">
+
+
+                <!-- Name -->
+
+                <div class="form-group">
+
+                    <label asp-for="Name"></label>
+
+                    <input asp-for="Name" class="form-control" />
+
+                    <span asp-validation-for="Name" class="text-danger"></span>
+
+                </div>
+
+
+
+                <!-- Username -->
+
+                <div class="form-group">
+
+                    <label asp-for="Username"></label>
+
+                    <input asp-for="Username" class="form-control" />
+
+                    <span asp-validation-for="Username" class="text-danger"></span>
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label asp-for="Password"></label>
+
+                    <input asp-for="Password"
+                           type="password"
+                           class="form-control" />
+
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                </div>
+
+
+
+                <!-- Course Dropdown -->
+
+                <div class="form-group">
+
+                    <label asp-for="Course"></label>
+
+
+                    <select asp-for="Course" class="form-control">
+
+                        <option value="">
+                            Select Course
+                        </option>
+
+
+                        <option value="B.Tech">
+                            B.Tech 
+                        </option>
+
+                        <option value="M.Tech">
+                            B.Tech
+                        </option>
+
+                        <option value="BCA">
+                            BCA
+                        </option>
+
+                        <option value="MCA">
+                            MCA
+                        </option>
+                        
+                        <option value="BPT">
+                            BPT
+                        </option>
+
+
+                        <option value="MBBS">
+                            MBBS
+                        </option>
+
+                        
+                  
+
+
+                    </select>
+
+
+                    <span asp-validation-for="Course" class="text-danger"></span>
+
+                </div>
+
+
+
+
+                <!-- Department -->
+
+                <div class="form-group">
+
+
+                    <label>Department</label>
+
+
+                    <select asp-for="DepartmentId" class="form-control">
+
+
+                        <option value="">
+                            Select Department
+                        </option>
+
+
+                        @if(ViewBag.Departments != null)
+                        {
+
+                            foreach (var item in ViewBag.Departments)
+                            {
+                                <option value="@item.DepartmentId">
+
+                                    @item.DepartmentName
+
+                                </option>
+                            }
+
+                        }
+
+
+                    </select>
+
+
+                    <span asp-validation-for="DepartmentId"
+                          class="text-danger"></span>
+
+
+                </div>
+
+
+
+
+                <!-- Semester Dropdown -->
+
+
+                <div class="form-group">
+
+
+                    <label asp-for="Semester"></label>
+
+
+                    <select asp-for="Semester" class="form-control">
+
+
+                        <option value="">
+                            Select Semester
+                        </option>
+
+
+                        @for(int i = 1; i <= 8; i++)
+                        {
+
+                            <option value="@i">
+
+                                Semester @i
+
+                            </option>
+
+                        }
+
+
+                    </select>
+
+
+                    <span asp-validation-for="Semester"
+                          class="text-danger"></span>
+
+
+                </div>
+
+
+
+
+
+                <!-- CGPA -->
+
+
+                <div class="form-group">
+
+                    <label asp-for="CGPA"></label>
+
+                    <input asp-for="CGPA"
+                           class="form-control"
+                           step="0.01" />
+
+                    <span asp-validation-for="CGPA"
+                          class="text-danger"></span>
+
+                </div>
+
+
+
+
+
+                <!-- DOB -->
+
+
+                <div class="form-group">
+
+                    <label asp-for="DOB"></label>
+
+                    <input asp-for="DOB"
+                           type="date"
+                           class="form-control" />
+
+                    <span asp-validation-for="DOB"
+                          class="text-danger"></span>
+
+                </div>
+
+
+
+
+
+                <!-- Mobile -->
+
+                <div class="form-group">
+
+                    <label asp-for="MobileNo"></label>
+
+                    <input asp-for="MobileNo"
+                           class="form-control" />
+
+                    <span asp-validation-for="MobileNo"
+                          class="text-danger"></span>
+
+                </div>
+
+
+
+
+
+                <!-- Hometown -->
+
+
+                <div class="form-group">
+
+                    <label asp-for="Hometown"></label>
+
+                    <input asp-for="Hometown"
+                           class="form-control" />
+
+                    <span asp-validation-for="Hometown"
+                          class="text-danger"></span>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="button-group">
+
+
+                <button type="submit" class="save-btn">
+
+                    Save Student
+
+                </button>
+
+
+
+                <a asp-action="Dashboard"
+                   class="cancel-btn">
+
+                    Cancel
+
+                </a>
+
+
+            </div>
+
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+
+}
